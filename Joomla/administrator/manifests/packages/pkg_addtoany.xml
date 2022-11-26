@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" method="upgrade">
+	<name>AddToAny</name>
+	<author>AddToAny</author>
+	<authorUrl>www.addtoany.com</authorUrl>
+	<copyright>Copyright (C) AddToAny</copyright>
+	<creationDate>July 2022</creationDate>
+	<packagename>addtoany</packagename>
+	<version>1.5.3</version>
+	<url>https://www.addtoany.com/</url>
+	<packager>AddToAny</packager>
+	<packagerurl>https://www.addtoany.com/</packagerurl>
+	<license>GNU/GPLv3</license>
+	<description><![CDATA[The AddToAny package manages the AddToAny Share Buttons plugin and the AddToAny Buttons module.]]></description>
+	<files folder="packages">
+		<file type="module" id="mod_addtoany" client="site">mod_addtoany.zip</file>
+		<file type="plugin" id="addtoany" group="content">plg_addtoany.zip</file>
+	</files>
+	<updateservers>
+		<server type="extension" priority="1" name="AddToAny Updates">https://static.addtoany.com/updates/joomla/update.xml</server>
+	</updateservers>
+</extension>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1.0" client="site" method="upgrade">
+    <name>AddToAny Buttons</name>
+    <author>AddToAny</author>
+    <copyright>Copyright (C) AddToAny</copyright>
+	<creationDate>May 2022</creationDate>
+    <version>1.1.0</version>
+	<license>GNU/GPLv3</license>
+    <description><![CDATA[Share and follow buttons for Joomla including AddToAny's universal share button, Facebook, Twitter, WhatsApp, Pinterest, LinkedIn and many more.]]></description>
+    <files>
+        <filename>mod_addtoany.xml</filename>
+        <filename module="mod_addtoany">mod_addtoany.php</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+    </files>
+    <config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="service_buttons_note" type="spacer" label="&lt;h4&gt;Service Buttons&lt;/h4&gt;" />
+				<field name="service_type" type="list"
+					default="share"
+					description="Choose your type of AddToAny buttons."
+					label="Type"
+				>
+					<option value="share">Share Buttons</option>
+					<option value="follow">Follow Buttons</option>
+				</field>
+				<field name="icon_size" class="addtoany_smaller_text" type="text" default="32" filter="integer" label="Icon Size" description="Specify the icon size in pixels." maxlength="3" required="required" size="3" />
+				<field name="icon_color" type="color" label="Icon Color" description="Choose an icon color, or leave blank for the default icons." />
+				<field name="service_buttons_html_code" class="addtoany_larger_textarea" filter="raw" label="Service Buttons HTML Code" type="textarea" default="&lt;a class=&quot;a2a_button_facebook&quot;&gt;&lt;/a&gt;&#13;&#10;&lt;a class=&quot;a2a_button_twitter&quot;&gt;&lt;/a&gt;&#13;&#10;&lt;a class=&quot;a2a_button_email&quot;&gt;&lt;/a&gt;&#13;&#10;&lt;a class=&quot;a2a_dd&quot;&gt;&lt;/a&gt;" description="HTML code to display customizable service buttons." rows="6" cols="40" id="service_buttons_html_code" />
+				<field name="share_buttons_html_code_note" type="note" description="You can add HTML code to display customizable &lt;a href=&quot;https://www.addtoany.com/buttons/customize/standalone_services&quot; target=&quot;_blank&quot;&gt;share buttons&lt;/a&gt;. For example: &lt;br&gt;&lt;pre&gt;&amp;lt;a class=&amp;quot;a2a_button_facebook&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&#13;&#10;&amp;lt;a class=&amp;quot;a2a_button_twitter&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&#13;&#10;&amp;lt;a class=&amp;quot;a2a_button_pinterest&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&#13;&#10;&amp;lt;a class=&amp;quot;a2a_dd&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&lt;/pre&gt;" showon="service_type:share" />
+				<field name="follow_buttons_html_code_note" type="note" description="You can add HTML code to display customizable &lt;a href=&quot;https://www.addtoany.com/buttons/customize/follow_buttons&quot; target=&quot;_blank&quot;&gt;follow buttons&lt;/a&gt;. For example: &lt;br&gt;&lt;pre&gt;&amp;lt;a class=&amp;quot;a2a_button_facebook&amp;quot; data-a2a-follow=&amp;quot;AddToAny&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&#13;&#10;&amp;lt;a class=&amp;quot;a2a_button_twitter&amp;quot; data-a2a-follow=&amp;quot;AddToAny&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&#13;&#10;&amp;lt;a class=&amp;quot;a2a_button_instagram&amp;quot; data-a2a-follow=&amp;quot;Instagram&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&#13;&#10;&amp;lt;a class=&amp;quot;a2a_button_email&amp;quot; href=&amp;quot;mailto:info@example.com&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&lt;/pre&gt;" showon="service_type:follow" />
+				<field name="custom_sharing_note" type="spacer" label="&lt;h4&gt;Custom Sharing&lt;/h4&gt;" showon="service_type:share" />
+				<field name="url" type="url" label="Shared URL" description="You can customize the shared URL, otherwise the current page URL will be shared." showon="service_type:share" />
+				<field name="title" type="text" label="Shared Title" description="You can customize the shared title (for some services), otherwise the current page title will be shared." showon="service_type:share" />
+			</fieldset>
+		</fields>
+    </config>
+</extension>

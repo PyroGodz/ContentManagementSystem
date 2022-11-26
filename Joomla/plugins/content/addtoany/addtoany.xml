@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="content" method="upgrade">
+	<name>AddToAny Share Buttons</name>
+	<author>AddToAny</author>
+	<authorUrl>www.addtoany.com</authorUrl>
+	<copyright>Copyright (C) AddToAny</copyright>
+	<creationDate>May 2022</creationDate>
+	<license>GNU/GPLv3</license>
+	<version>1.5</version>
+	<description><![CDATA[Configurable share buttons automatically placed to share your content. Buttons include AddToAny's universal share button, Facebook, Twitter, WhatsApp, Pinterest, LinkedIn and many more.]]></description>
+	<files>
+		<filename plugin="addtoany">addtoany.php</filename>
+		<filename plugin="addtoany">addtoany.css</filename>
+		<filename>index.html</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="service_buttons_note" type="spacer" label="&lt;h4&gt;Service Buttons&lt;/h4&gt;" />
+				<field name="icon_size" class="addtoany_smaller_text" type="number" default="32" filter="integer" label="Icon Size" description="Specify the icon size in pixels." maxlength="3" required="required" size="3" />
+				<field name="service_buttons_html_code" class="addtoany_larger_textarea" filter="raw" label="Service Buttons HTML Code" type="textarea" default="&lt;a class=&quot;a2a_button_facebook&quot;&gt;&lt;/a&gt;&#13;&#10;&lt;a class=&quot;a2a_button_twitter&quot;&gt;&lt;/a&gt;&#13;&#10;&lt;a class=&quot;a2a_button_email&quot;&gt;&lt;/a&gt;" description="HTML code to display customizable &lt;a href=&quot;https://www.addtoany.com/buttons/customize/standalone_services&quot; target=&quot;_blank&quot;&gt;standalone service buttons&lt;/a&gt; next to each universal sharing button." rows="6" cols="40" id="service_buttons_html_code" hint="&lt;a class=&quot;a2a_button_facebook&quot;&gt;&lt;/a&gt;&#13;&#10;&lt;a class=&quot;a2a_button_twitter&quot;&gt;&lt;/a&gt;&#13;&#10;&lt;a class=&quot;a2a_button_pinterest&quot;&gt;&lt;/a&gt;" />
+				<field name="universal_button_note" type="spacer" label="&lt;h4&gt;Universal Share Button&lt;/h4&gt;" />
+				<field name="universal_button_position" type="list"
+					default="after"
+					description="Place AddToAny's Universal Share Button before or after service buttons."
+					label="Universal Button Position"
+				>
+					<option value="before">Before Service Buttons</option>
+					<option value="after">After Service Buttons</option>
+					<option value="disabled">Disable Universal Sharing</option>
+				</field>
+				<field name="universal_button_innerhtml" type="text" filter="raw" label="Universal Button Inner HTML" description="Specify the Universal Share Button's inner HTML code, such as a share button image." hint="&lt;img src=&quot;https://static.addtoany.com/buttons/share_save_342_32.png&quot; alt=&quot;Share&quot; width=&quot;342&quot; height=&quot;32&quot;&gt;" showon="universal_button_position:before,after" />
+				<field name="additional_js_header" type="spacer" label="&lt;h4&gt;Additional Options&lt;/h4&gt;" />
+				<field name="additional_js" class="addtoany_larger_textarea" filter="raw" label="Additional JavaScript Code" type="textarea" description="JavaScript code to customize AddToAny." rows="6" cols="40" id="additional_js" />
+				<field name="additional_js_note" type="note" description="Explore AddToAny's &lt;a href=&quot;https://www.addtoany.com/buttons/customize/&quot; target=&quot;_blank&quot;&gt;documentation here&lt;/a&gt;." />
+			</fieldset>
+			<fieldset name="addtoany_placement" label="AddToAny Placement">
+				<field name="content" type="radio"
+					class="btn-group"
+					default="1"
+					description="Display AddToAny in content?"
+					label="Display in Content"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="content_position" type="list"
+					default="bottom"
+					description="When placed in content, where in the content should AddToAny be displayed?"
+					label="Display in Content at"
+					showon="content:1"
+				>
+					<option value="top">Top of Content</option>
+					<option value="bottom">Bottom of Content</option>
+					<option value="both"><![CDATA[Top &amp; Bottom of Content]]></option>
+				</field>
+				<field name="front_page" type="radio"
+					class="btn-group"
+					default="1"
+					description="Display AddToAny in content on the front page?"
+					label="Display on Front Page"
+					showon="content:1"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="featured_page" type="radio"
+					class="btn-group"
+					default="1"
+					description="Display AddToAny in content on featured pages?"
+					label="Display on Featured Pages"
+					showon="content:1"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="category_pages" type="radio"
+					class="btn-group"
+					default="1"
+					description="Display AddToAny in content on category pages?"
+					label="Display on Category Pages"
+					showon="content:1"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="categories_excluded_2" type="category" extension="com_content" multiple="true" size="8" default="" label="Categories Excluded" description="Select categories to disable sharing in." showon="content:1" />
+				<field name="noshare" type="note" label="Disabling share buttons on articles" description="To disable sharing on a specific page, add &lt;code&gt;&amp;lt;!--noshare--&amp;gt;&lt;/code&gt; to the source code of your content." />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
